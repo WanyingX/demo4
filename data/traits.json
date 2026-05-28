@@ -1,0 +1,5 @@
+[
+  {"id":"MPN",    "label":"MPN",             "color":"#e53566"},
+  {"id":"Lymph",  "label":"Lymphocyte count", "color":"#3b5bdb"},
+  {"id":"BCL11A", "label":"BCL11A",           "color":"#16a34a"}
+]
