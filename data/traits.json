@@ -1,5 +1,6 @@
 [
   {"id":"MPN",    "label":"MPN",             "color":"#e53566"},
+  {"id":"mpn_leading",  "label":"MPN (leading)",    "color":"#b91c4b"},
   {"id":"Lymph",  "label":"Lymphocyte count", "color":"#3b5bdb"},
   {"id":"BCL11A", "label":"BCL11A",           "color":"#16a34a"},
   {"id":"MCH",    "label":"MCH",              "color":"#f59e0b"}
