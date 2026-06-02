@@ -18,34 +18,25 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px}
-
-/* ── Topbar ── */
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;height:54px;box-shadow:0 1px 0 var(--border)}
 .logo{font-size:16px;font-weight:600;color:var(--text);letter-spacing:-.3px}
 .logo em{color:var(--accent);font-style:normal}
 .logo-sub{font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);margin-top:1px}
 .topright{margin-left:auto;display:flex;align-items:center;gap:10px}
-
-/* trait selector */
-.trait-select{background:var(--surface2);color:var(--text);border:1px solid var(--border2);border-radius:6px;padding:5px 10px;font-size:12px;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;transition:border .15s}
-.trait-select:focus{border-color:var(--accent2)}
-
-/* variant input */
-.var-label{font-size:11px;color:var(--text3);font-weight:500}
-.var-wrap-rel{position:relative}
-.var-input{background:var(--surface2);color:var(--text);border:1px solid var(--border2);border-radius:6px;padding:6px 11px;font-size:12px;font-family:'DM Mono',monospace;outline:none;width:180px;transition:border .15s}
-.var-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(229,53,102,.08)}
+.trait-select,.var-input{background:var(--surface2);color:var(--text);border:1px solid var(--border2);border-radius:6px;padding:5px 10px;font-size:12px;font-family:'DM Mono',monospace;outline:none;transition:border .15s}
+.trait-select:focus,.var-input:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(59,91,219,.08)}
+.var-input{width:180px}
 .var-input::placeholder{color:var(--text3)}
-.go-btn{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s}
+.var-label{font-size:11px;color:var(--text3);font-weight:500}
+.go-btn{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
 .go-btn:hover{background:#c82050}
 .var-suggest{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--surface);border:1px solid var(--border2);border-radius:8px;max-height:200px;overflow-y:auto;z-index:200;display:none;box-shadow:var(--shadow2)}
 .var-suggest.show{display:block}
 .vs-item{padding:7px 12px;font-size:12px;cursor:pointer;color:var(--text2);font-family:'DM Mono',monospace}
 .vs-item:hover,.vs-item.active{background:var(--bg);color:var(--accent)}
+.var-wrap-rel{position:relative}
 .zoom-wrap{display:flex;align-items:center;gap:6px;padding-left:12px;border-left:1px solid var(--border)}
 .zoom-lbl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;min-width:32px}
-
-/* ── Stats ── */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px 24px 0}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
 .stat-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
@@ -53,50 +44,34 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .stat-val{font-size:17px;font-weight:600;line-height:1;font-family:'DM Mono',monospace}
 .s1 .stat-val{color:var(--accent)}.s2 .stat-val{color:var(--accent2)}.s3 .stat-val{color:var(--accent5)}
 .stat-lbl{font-size:11px;color:var(--text3);margin-top:3px;font-weight:500}
-
-/* ── Page ── */
 .page{padding:12px 24px 24px;display:flex;flex-direction:column;gap:11px}
-
-/* ── Card ── */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;position:relative;overflow:auto;box-shadow:var(--shadow);resize:both;min-width:180px;min-height:80px}
 .card-top{display:flex;align-items:center;gap:7px;margin-bottom:10px;flex-wrap:wrap}
 .card-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .card-title{font-size:11px;font-weight:600;letter-spacing:.05em;color:var(--text3);text-transform:uppercase}
 .card-meta{font-size:9px;color:var(--text3);margin-left:auto;opacity:.7}
-
-/* ── Layer buttons ── */
 .lbtns{display:flex;gap:4px;flex-wrap:wrap}
 .lb{font-size:10px;padding:3px 10px;border-radius:4px;border:1px solid var(--border2);background:transparent;color:var(--text3);cursor:pointer;transition:all .15s;font-family:'DM Sans',sans-serif;font-weight:500}
 .lb:hover{border-color:var(--accent);color:var(--accent);background:#fef0f4}
 .lb.on{border-color:var(--accent);background:#fef0f4;color:var(--accent)}
-
-/* ── Gene tabs ── */
+/* tree layer toggle including ATAC */
+.lb[data-l="atac"].on{border-color:#f59e0b;background:#fffbeb;color:#b45309}
+.lb[data-l="atac"]:hover{border-color:#f59e0b;color:#b45309;background:#fffbeb}
 .gene-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
 .gene-tab{font-size:10px;padding:3px 10px;border-radius:4px;border:1px solid var(--border2);background:transparent;color:var(--text3);cursor:pointer;transition:all .15s;font-family:'DM Mono',monospace}
 .gene-tab:hover{border-color:var(--accent4);color:var(--accent4);background:#f5f3ff}
 .gene-tab.on{border-color:var(--accent4);background:#f5f3ff;color:var(--accent4)}
-
-/* ── Spinner ── */
 .spin-wrap{position:absolute;inset:0;background:rgba(255,255,255,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;z-index:5;gap:8px;backdrop-filter:blur(2px)}
 .sp{width:20px;height:20px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .sp-lbl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace}
-
-/* ── Layouts ── */
 .umap-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
 .bottom-row{display:grid;grid-template-columns:1fr 1fr 320px;gap:11px}
-
-/* ── UMAP ── */
 .umap-wrap{position:relative;width:100%;height:230px;background:#f8f9fc;border-radius:8px;overflow:hidden}
-#umapRefImg{width:100%;height:100%;object-fit:contain;display:block}
 #umapHlCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
-
-/* ── Legend ── */
 .legend{display:flex;align-items:center;gap:6px;margin-top:7px;justify-content:flex-end}
 .lg-grad{width:70px;height:5px;border-radius:3px}
 .ll{font-size:9px;color:var(--text3);font-family:'DM Mono',monospace}
-
-/* ── Scrollable ── */
 .p2g-scroll{overflow-x:auto}
 .p2g-scroll::-webkit-scrollbar{height:3px;width:3px}
 .p2g-scroll::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
@@ -104,27 +79,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 #goWrap::-webkit-scrollbar{width:3px}
 #goWrap::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 #radarCanvas{width:100%;height:170px}
-
-/* ── GO ── */
 .go-row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
 .go-term{font-size:10px;min-width:155px;max-width:155px;color:var(--text2);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'DM Mono',monospace}
 .go-bar-bg{flex:1;height:9px;background:var(--bg);border-radius:2px;overflow:hidden;border:1px solid var(--border)}
 .go-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent3),#00c6d8)}
 .go-val{font-size:9px;color:var(--text3);min-width:30px;text-align:right;font-family:'DM Mono',monospace}
-
-/* loading overlay */
+/* peak info badge */
+.peak-badge{font-size:9px;font-family:'DM Mono',monospace;background:#fffbeb;color:#b45309;border:1px solid #fcd34d;border-radius:4px;padding:2px 8px;margin-left:8px}
+/* tree legend */
+.tree-legend{display:flex;gap:16px;margin-top:8px;flex-wrap:wrap}
+.tl-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text3)}
+.tl-circle{width:12px;height:12px;border-radius:50%;flex-shrink:0}
 #loadingOverlay{position:fixed;inset:0;background:rgba(255,255,255,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:12px}
 #loadingOverlay .sp{width:32px;height:32px;border-width:3px}
 #loadingMsg{font-size:13px;color:var(--text3);font-family:'DM Mono',monospace}
 </style>
 </head>
 <body>
-
-<!-- Loading overlay -->
-<div id="loadingOverlay">
-  <div class="sp"></div>
-  <div id="loadingMsg">Loading data…</div>
-</div>
+<div id="loadingOverlay"><div class="sp"></div><div id="loadingMsg">Loading data…</div></div>
 
 <div class="topbar">
   <div>
@@ -132,19 +104,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="logo-sub">Hematopoietic variant-to-function · Sankaran Lab</div>
   </div>
   <div class="topright">
-    <!-- Trait selector -->
     <span class="var-label">Trait</span>
     <select class="trait-select" id="traitSelect"></select>
-
-    <!-- Variant input -->
     <span class="var-label">Variant</span>
     <div class="var-wrap-rel">
       <input class="var-input" id="varInput" placeholder="e.g. rs17834140" autocomplete="off" spellcheck="false"/>
       <div class="var-suggest" id="varSuggest"></div>
     </div>
     <button class="go-btn" id="goBtn">Go</button>
-
-    <!-- Zoom -->
     <div class="zoom-wrap">
       <input type="range" id="zSlider" min="70" max="130" value="100" style="width:55px"
         oninput="document.getElementById('zLbl').textContent=this.value+'%';
@@ -162,22 +129,29 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 </div>
 
 <div class="page">
-
   <!-- Lineage tree -->
   <div class="card" style="resize:horizontal">
     <div class="spin-wrap" id="treeSpin"><div class="sp"></div><div class="sp-lbl">Loading…</div></div>
     <div class="card-top">
       <div class="card-dot" style="background:var(--accent2)"></div>
       <span class="card-title">Hematopoietic lineage tree</span>
-      <div class="lbtns" id="layerBtns" style="margin-left:12px">
+      <span class="peak-badge" id="peakBadge">—</span>
+      <div class="lbtns" id="layerBtns" style="margin-left:8px">
         <button class="lb on" data-l="combined">Combined</button>
         <button class="lb" data-l="logfc_scaled">logFC</button>
         <button class="lb" data-l="p2g_scaled">P2G</button>
         <button class="lb" data-l="nes_scaled">NES</button>
+        <button class="lb" data-l="atac">ATAC CPM</button>
       </div>
       <span class="card-meta">dbl-click to expand</span>
     </div>
-    <svg id="treeSvg" style="width:100%;height:380px;overflow:visible"></svg>
+    <svg id="treeSvg" style="width:100%;height:290px;overflow:visible"></svg>
+    <div class="tree-legend" id="treeLegend">
+      <div class="tl-item"><div class="tl-circle" style="background:#f0f1f5;border:1px solid #d0d4e0"></div><span>Low / no signal</span></div>
+      <div class="tl-item"><div class="tl-circle" style="background:#e88090"></div><span>Medium</span></div>
+      <div class="tl-item"><div class="tl-circle" style="background:#e53566"></div><span>High (Combined/logFC/P2G/NES)</span></div>
+      <div id="atacLegendItem" class="tl-item" style="display:none"><div class="tl-circle" style="background:#f59e0b"></div><span>High ATAC CPM</span></div>
+    </div>
   </div>
 
   <!-- Two UMAPs -->
@@ -188,10 +162,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <span class="card-title">Cell type reference</span>
       </div>
       <div class="umap-wrap">
-        <img id="umapRefImg" src="./img/umap_ref.png" alt="UMAP ref" style="width:100%;height:100%;object-fit:contain"/>
+        <img id="umapRefImg" src="./img/umap_ref.png" style="width:100%;height:100%;object-fit:contain"/>
       </div>
     </div>
-
     <div class="card">
       <div class="spin-wrap" id="umapSpin"><div class="sp"></div><div class="sp-lbl">Loading…</div></div>
       <div class="card-top">
@@ -199,7 +172,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <span class="card-title">Per-cell type combined score</span>
       </div>
       <div class="umap-wrap" id="umapWrap">
-        <img id="umapGrayImg" src="./img/umap_gray.png" alt="UMAP gray" style="width:100%;height:100%;object-fit:contain;display:block"/>
+        <img id="umapGrayImg" src="./img/umap_gray.png" style="width:100%;height:100%;object-fit:contain;display:block"/>
         <canvas id="umapHlCanvas"></canvas>
       </div>
       <div class="legend">
@@ -212,8 +185,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
   <!-- Bottom row -->
   <div class="bottom-row">
-
-    <!-- NES + GO -->
     <div style="display:flex;flex-direction:column;gap:11px">
       <div class="card">
         <div class="spin-wrap" id="radarSpin"><div class="sp"></div><div class="sp-lbl">Loading…</div></div>
@@ -232,25 +203,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <div id="goWrap"><div style="color:var(--text3);font-size:11px;padding:6px">Select a gene above</div></div>
       </div>
     </div>
-
-    <!-- P2G -->
     <div class="card">
       <div class="card-top">
         <div class="card-dot" style="background:var(--accent3)"></div>
         <span class="card-title">P2G score · cell type × gene</span>
         <span id="p2gScaleInfo" style="font-size:9px;color:var(--text3);margin-left:6px"></span>
       </div>
-      <div class="p2g-scroll" id="p2gWrap">
-        <div style="color:var(--text3);font-size:11px;padding:8px">Loading…</div>
-      </div>
+      <div class="p2g-scroll" id="p2gWrap"><div style="color:var(--text3);font-size:11px;padding:8px">Loading…</div></div>
       <div class="legend">
         <span class="ll">low</span>
         <div class="lg-grad" style="background:linear-gradient(90deg,#2222cc,#fff,#cc2222)"></div>
         <span class="ll">high</span>
       </div>
     </div>
-
-    <!-- Combined score -->
     <div class="card">
       <div class="card-top">
         <div class="card-dot" style="background:#f59e0b"></div>
@@ -258,109 +223,80 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       </div>
       <div id="hbarWrap"></div>
     </div>
-
   </div>
 </div>
 
 <script>
 const CB='?v='+Date.now();
-
 const CT_ORDER=['HSC','MPP_MyLy','MPP_MkEry','LMPP','MKP','EoBasoP','MEP','CyclingP',
   'BFU_E','CFU_E','ProE','BasoE','PolyE','OrthoE','MDP','Early_GMP','GMP',
   'pDC','cDC','ProMono','CD14Mono','CD16Mono','MLP','CLP','PreProB',
   'Cycling_ProB','VDJ_ProB','Large_PreB','Small_PreB','ImmatureB','MatureB',
   'Plasma','CD4T','CD8T','NK','Stromal'];
 
-// Global state
-let G={scores:null,nes:null,p2g:null,go:null,vars:[],umap:null,tree:null};
+let G={scores:null,nes:null,p2g:null,go:null,vars:[],umap:null,tree:null,peakcpm:null};
 let curSnp='',curLayer='combined',curGene='',curTrait='MPN';
 let traits=[];
 
-function debounce(fn,delay=150){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),delay);};}
+function debounce(fn,d=150){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),d);};}
 function bwr(t){if(t<0){const s=-t;return[Math.round(220*(1-s)+34*s),Math.round(220*(1-s)+34*s),220];}return[220,Math.round(220*(1-t)+34*t),Math.round(220*(1-t)+34*t)];}
 function percentile(arr,p){const s=[...arr].sort((a,b)=>a-b);const i=(p/100)*(s.length-1);const lo=Math.floor(i),hi=Math.ceil(i);return s[lo]+(s[hi]-s[lo])*(i-lo);}
 function scoreToRGB(v){const t=Math.min(v,1);return`${Math.round(229+(244-229)*(1-t))},${Math.round(53+(245-53)*(1-t))},${Math.round(102+(248-102)*(1-t))}`;}
+// amber color for ATAC
+function atacToRGB(v){const t=Math.min(v,1);return`${Math.round(250+(244-250)*(1-t))},${Math.round(159+(245-159)*(1-t))},${Math.round(0+(248-0)*(1-t))}`;}
 
 const hide=id=>{const e=document.getElementById(id);if(e)e.style.display='none'};
 const show=id=>{const e=document.getElementById(id);if(e)e.style.display='flex'};
 const dpr=()=>window.devicePixelRatio||1;
+function hiRes(c,w,h){const d=dpr();c.width=Math.round(w*d);c.height=Math.round(h*d);c.style.width=w+'px';c.style.height=h+'px';const ctx=c.getContext('2d');ctx.scale(d,d);return ctx;}
+function setLoading(msg){const ol=document.getElementById('loadingOverlay');const lm=document.getElementById('loadingMsg');if(msg){ol.style.display='flex';lm.textContent=msg;}else{ol.style.display='none';}}
 
-function setLoading(msg){
-  const ol=document.getElementById('loadingOverlay');
-  const lm=document.getElementById('loadingMsg');
-  if(msg){ol.style.display='flex';lm.textContent=msg;}
-  else{ol.style.display='none';}
-}
-
-function hiRes(canvas,w,h){
-  const d=dpr();
-  canvas.width=Math.round(w*d);canvas.height=Math.round(h*d);
-  canvas.style.width=w+'px';canvas.style.height=h+'px';
-  const ctx=canvas.getContext('2d');ctx.scale(d,d);return ctx;
-}
-
-// ── Load shared data (umap coords + tree) ────────────────────────────────
 async function loadShared(){
   setLoading('Loading shared data…');
   const [umap,tree]=await Promise.all([
     fetch('./data/umap_coords.json'+CB).then(r=>r.json()),
     fetch('./data/tree_structure.json'+CB).then(r=>r.json())
   ]);
-  G.umap=umap; G.tree=tree;
+  G.umap=umap;G.tree=tree;
 }
 
-// ── Load trait-specific data ──────────────────────────────────────────────
 async function loadTrait(trait){
   setLoading(`Loading ${trait} data…`);
   const base=`./data/${trait}`;
-  const [sl,nes,vars,p2g,go]=await Promise.all([
+  const [sl,nes,vars,p2g,go,peakcpm]=await Promise.all([
     fetch(`${base}/combined_scores_long.json`+CB).then(r=>r.json()),
     fetch(`${base}/nes_data.json`+CB).then(r=>r.json()),
     fetch(`${base}/variants.json`+CB).then(r=>r.json()),
     fetch(`${base}/p2g_data.json`+CB).then(r=>r.json()),
-    fetch(`${base}/go_data.json`+CB).then(r=>r.json()).catch(()=>({}))
+    fetch(`${base}/go_data.json`+CB).then(r=>r.json()).catch(()=>({})),
+    fetch(`${base}/peak_cpm.json`+CB).then(r=>r.json()).catch(()=>null)
   ]);
-  G.scores=sl; G.nes=nes; G.vars=vars; G.p2g=p2g; G.go=go;
+  G.scores=sl;G.nes=nes;G.vars=vars;G.p2g=p2g;G.go=go;G.peakcpm=peakcpm;
   curTrait=trait;
   setupInput(vars);
   setLoading(null);
-  if(vars.length){
-    document.getElementById('varInput').value=vars[0];
-    render(vars[0]);
-  }
+  if(vars.length){document.getElementById('varInput').value=vars[0];render(vars[0]);}
 }
 
-// ── Load all ──────────────────────────────────────────────────────────────
 async function loadAll(){
   try{
-    // Load traits list
     traits=await fetch('./data/traits.json'+CB).then(r=>r.json());
     const sel=document.getElementById('traitSelect');
     sel.innerHTML=traits.map(t=>`<option value="${t.id}">${t.label}</option>`).join('');
     sel.addEventListener('change',e=>loadTrait(e.target.value));
-
-    // Load shared data
     await loadShared();
-
-    // Load first trait
     await loadTrait(traits[0].id);
-
-    // ResizeObserver
     const ro=new ResizeObserver(debounce(()=>{if(curSnp)render(curSnp)},200));
     document.querySelectorAll('.card').forEach(c=>ro.observe(c));
-
   }catch(e){
     setLoading(null);
-    document.querySelector('.page').innerHTML=
-      `<div style="padding:2rem;color:var(--accent)">Error: ${e.message}</div>`;
+    document.querySelector('.page').innerHTML=`<div style="padding:2rem;color:var(--accent)">Error: ${e.message}</div>`;
   }
 }
 
-// ── Input ─────────────────────────────────────────────────────────────────
 function setupInput(vars){
   const inp=document.getElementById('varInput');
   const sug=document.getElementById('varSuggest');
-  // Remove old listeners by cloning
   const newInp=inp.cloneNode(true);
   inp.parentNode.replaceChild(newInp,inp);
   let idx=-1;
@@ -379,24 +315,17 @@ function setupInput(vars){
     else if(e.key==='Enter'){const snp=idx>=0?items[idx]?.dataset.v:newInp.value.trim();if(snp){newInp.value=snp;sug.className='var-suggest';doRender(snp);}}
     else if(e.key==='Escape')sug.className='var-suggest';
   });
-  sug.addEventListener('click',e=>{
-    const item=e.target.closest('.vs-item');if(!item)return;
-    newInp.value=item.dataset.v;sug.className='var-suggest';doRender(item.dataset.v);
-  });
+  sug.addEventListener('click',e=>{const item=e.target.closest('.vs-item');if(!item)return;newInp.value=item.dataset.v;sug.className='var-suggest';doRender(item.dataset.v);});
   document.getElementById('goBtn').onclick=()=>doRender(document.getElementById('varInput').value.trim());
-  document.addEventListener('click',e=>{
-    if(!e.target.closest('.var-wrap-rel')&&!e.target.closest('.go-btn'))sug.className='var-suggest';
-  });
+  document.addEventListener('click',e=>{if(!e.target.closest('.var-wrap-rel')&&!e.target.closest('.go-btn'))sug.className='var-suggest';});
 }
 
 function doRender(snp){
-  if(!snp||!G.vars.includes(snp)){
-    ['s-ct','s-gene','s-score'].forEach(id=>document.getElementById(id).textContent='—');return;
-  }
+  if(!snp||!G.vars.includes(snp)){['s-ct','s-gene','s-score'].forEach(id=>document.getElementById(id).textContent='—');return;}
   render(snp);
 }
 
-// ── UMAP highlight (pseudobulk per celltype) ──────────────────────────────
+// ── UMAP ──────────────────────────────────────────────────────────────────────
 function renderUMAP(combined){
   show('umapSpin');
   const wrap=document.getElementById('umapWrap');
@@ -407,10 +336,8 @@ function renderUMAP(combined){
   canvas.style.width=W+'px';canvas.style.height=H+'px';
   const ctx=canvas.getContext('2d');ctx.scale(d,d);
   ctx.clearRect(0,0,W,H);
-
   if(!G.umap){hide('umapSpin');return;}
   const {xnorm,ynorm,celltype}=G.umap;
-
   const imgEl=document.getElementById('umapGrayImg');
   const natW=imgEl.naturalWidth||700,natH=imgEl.naturalHeight||600;
   const scale=Math.min(W/natW,H/natH);
@@ -419,45 +346,77 @@ function renderUMAP(combined){
   const pad=10*scale;
   const toX=xn=>offX+pad+xn*(dispW-2*pad);
   const toY=yn=>offY+dispH-pad-yn*(dispH-2*pad);
-
   const maxV=Math.max(...Object.values(combined),0.001);
   const dotR=Math.max(0.6,scale*1.0);
-
   for(let i=0;i<xnorm.length;i++){
     const v=(combined[celltype[i]]||0)/maxV;
     if(v<0.05)continue;
-    ctx.beginPath();
-    ctx.arc(toX(xnorm[i]),toY(ynorm[i]),dotR,0,2*Math.PI);
-    ctx.fillStyle=`rgba(${scoreToRGB(v)},0.85)`;
-    ctx.fill();
+    ctx.beginPath();ctx.arc(toX(xnorm[i]),toY(ynorm[i]),dotR,0,2*Math.PI);
+    ctx.fillStyle=`rgba(${scoreToRGB(v)},0.85)`;ctx.fill();
   }
   hide('umapSpin');
 }
 
-// ── Tree ──────────────────────────────────────────────────────────────────
+// ── Tree ──────────────────────────────────────────────────────────────────────
 function renderTree(snp,scores){
   show('treeSpin');
   const svg=document.getElementById('treeSvg');
-  const W=svg.clientWidth||900,H=400;
+  const W=svg.clientWidth||900,H=290;
   const tree=G.tree;if(!tree){hide('treeSpin');return;}
   const nodeMap={};tree.nodes.forEach(n=>nodeMap[n.id]=n);
   const ctMap=tree.ct_map||{};
+
+  // Get ATAC CPM for this variant if layer=atac
+  const peakData=G.peakcpm&&G.peakcpm[snp]?G.peakcpm[snp]:null;
+  const isAtac=curLayer==='atac';
+
+  // Update peak badge
+  const badge=document.getElementById('peakBadge');
+  badge.textContent=peakData?peakData.peak:'no peak data';
+
+  // Legend toggle
+  document.getElementById('atacLegendItem').style.display=isAtac?'flex':'none';
+
   function nodeScore(nid){
+    if(isAtac){
+      if(!peakData||!peakData.cpm_norm)return 0;
+      // find which celltypes map to this node
+      let max=0;
+      Object.entries(ctMap).forEach(([ct,nd])=>{
+        if(nd===nid){const v=peakData.cpm_norm[ct]||0;if(v>max)max=v;}
+      });
+      if(peakData.cpm_norm[nid]){const v=peakData.cpm_norm[nid]||0;if(v>max)max=v;}
+      return max;
+    }
     let max=0;
     Object.entries(ctMap).forEach(([ct,nd])=>{if(nd===nid&&scores[ct]){const v=scores[ct][curLayer]||0;if(v>max)max=v;}});
     if(scores[nid]){const v=scores[nid][curLayer]||0;if(v>max)max=v;}
     return max;
   }
-  const xs=tree.nodes.map(n=>n.x),ys=tree.nodes.map(n=>n.y);
-  const xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(...ys),ymax=Math.max(...ys);
-  const px=50,py=40;
-  const nx=x=>px+(x-xmin)/(xmax-xmin)*(W-2*px);
-  const ny=y=>H-py-(y-ymin)/(ymax-ymin)*(H-2*py);
-  function nodeCol(v){
+
+  function nodeColor(v){
+    if(isAtac){
+      if(v<0.02)return'#f0f1f5';
+      const t=Math.min(v*1.1,1);
+      // amber gradient for ATAC
+      return`rgb(${Math.round(244+(250-244)*t)},${Math.round(245+(159-245)*t)},${Math.round(248+(0-248)*t)})`;
+    }
     if(v<0.02)return'#f0f1f5';
     const t=Math.min(v*1.1,1);
     return`rgb(${Math.round(244+(229-244)*t)},${Math.round(245+(53-245)*t)},${Math.round(248+(102-248)*t)})`;
   }
+
+  function nodeStroke(v){
+    if(v<0.12)return'#d0d4e0';
+    return isAtac?'#f59e0b':'var(--accent)';
+  }
+
+  const xs=tree.nodes.map(n=>n.x),ys=tree.nodes.map(n=>n.y);
+  const xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(...ys),ymax=Math.max(...ys);
+  const px=36,py=26;
+  const nx=x=>px+(x-xmin)/(xmax-xmin)*(W-2*px);
+  const ny=y=>H-py-(y-ymin)/(ymax-ymin)*(H-2*py);
+
   let h=`<defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
       <path d="M1 2L8 5L1 8" fill="none" stroke="#c8ccdb" stroke-width="1.5" stroke-linecap="round"/>
@@ -465,29 +424,48 @@ function renderTree(snp,scores){
     <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     </defs>`;
+
   tree.edges.forEach(e=>{
     const fn=nodeMap[e.from],tn=nodeMap[e.to];if(!fn||!tn)return;
     h+=`<line x1="${nx(fn.x).toFixed(1)}" y1="${ny(fn.y).toFixed(1)}"
       x2="${nx(tn.x).toFixed(1)}" y2="${ny(tn.y).toFixed(1)}"
       stroke="#dde0ea" stroke-width="1.5" marker-end="url(#arr)"/>`;
   });
+
   tree.nodes.forEach(n=>{
     const x=nx(n.x),y=ny(n.y),s=nodeScore(n.id);
     const r=s>0.4?16:s>0.2?14:s>0.05?12:10;
-    const fill=nodeCol(s),stroke=s>0.12?'var(--accent)':'#d0d4e0',sw=s>0.12?2:1;
+    const fill=nodeColor(s),stroke=nodeStroke(s),sw=s>0.12?2:1;
     const glow=s>0.15?'filter="url(#glow)"':'';
     h+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}"
-      fill="${fill}" stroke="${stroke}" stroke-width="${sw}" ${glow}/>`;
+      fill="${fill}" stroke="${stroke}" stroke-width="${sw}" ${glow}>
+      <title>${n.id}${isAtac&&peakData?` | CPM: ${(peakData.cpm[n.id]||0).toFixed(1)}`:`| Score: ${s.toFixed(3)}`}</title>
+      </circle>`;
     const fs=s>0.2?13:s>0.05?11:10,fc=s>0.2?'#1a1d2e':s>0.05?'#4b5068':'#9ba3bc';
     h+=`<text x="${x.toFixed(1)}" y="${(y-r-3).toFixed(1)}"
       text-anchor="middle" font-size="${fs}" fill="${fc}"
       font-weight="${s>0.2?'600':'400'}"
       font-family="DM Sans,-apple-system,sans-serif">${n.id}</text>`;
   });
+
+  // If ATAC mode, show CPM values on nodes
+  if(isAtac&&peakData){
+    tree.nodes.forEach(n=>{
+      const x=nx(n.x),y=ny(n.y);
+      const ct=Object.keys(ctMap).find(k=>ctMap[k]===n.id)||n.id;
+      const cpm=peakData.cpm[ct]||peakData.cpm[n.id]||0;
+      if(cpm>0){
+        h+=`<text x="${x.toFixed(1)}" y="${(y+4).toFixed(1)}"
+          text-anchor="middle" font-size="7" fill="#92400e"
+          font-family="DM Mono,monospace">${cpm.toFixed(0)}</text>`;
+      }
+    });
+  }
+
   svg.innerHTML=h;hide('treeSpin');
 }
 
-// ── Gene tabs ─────────────────────────────────────────────────────────────
+// ── Gene tabs ──────────────────────────────────────────────────────────────────
 function buildGeneTabs(snp){
   const nesSnp=G.nes&&G.nes[snp]?G.nes[snp]:{};
   const genes=Object.keys(nesSnp);
@@ -508,7 +486,7 @@ function buildGeneTabs(snp){
   return genes[0];
 }
 
-// ── Radar ─────────────────────────────────────────────────────────────────
+// ── Radar ──────────────────────────────────────────────────────────────────────
 function renderRadar(snp,gene){
   show('radarSpin');
   const el=document.getElementById('radarCanvas');
@@ -523,8 +501,7 @@ function renderRadar(snp,gene){
   const n=cts.length,angs=cts.map((_,i)=>i/n*2*Math.PI-Math.PI/2);
   const vals=cts.map(ct=>geneNes[ct]||0),maxV=Math.max(...vals,0.001);
   [.25,.5,.75,1].forEach(f=>{
-    ctx.beginPath();
-    angs.forEach((a,i)=>{const x=cx+R*f*Math.cos(a),y=cy+R*f*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    ctx.beginPath();angs.forEach((a,i)=>{const x=cx+R*f*Math.cos(a),y=cy+R*f*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
     ctx.closePath();ctx.strokeStyle='#e8eaf0';ctx.lineWidth=0.8;ctx.stroke();
   });
   angs.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+R*Math.cos(a),cy+R*Math.sin(a));ctx.strokeStyle='#e8eaf0';ctx.lineWidth=0.6;ctx.stroke();});
@@ -543,7 +520,7 @@ function renderRadar(snp,gene){
   hide('radarSpin');
 }
 
-// ── P2G ───────────────────────────────────────────────────────────────────
+// ── P2G ───────────────────────────────────────────────────────────────────────
 function renderP2G(snp){
   const wrap=document.getElementById('p2gWrap');
   const p2gSnp=G.p2g&&G.p2g[snp]?G.p2g[snp]:{};
@@ -570,8 +547,7 @@ function renderP2G(snp){
       ctx.fillText(ct,ctLabelW-5,geneLabelH+ri*rowH+rowH*0.72);
       genes.forEach((g,gi)=>{
         const v=(p2gSnp[g]&&p2gSnp[g][ct]!=null)?Number(p2gSnp[g][ct]):0;
-        ctx.fillStyle=p2gColor(v);
-        ctx.fillRect(ctLabelW+gi*colW+1,geneLabelH+ri*rowH+1,colW-2,rowH-2);
+        ctx.fillStyle=p2gColor(v);ctx.fillRect(ctLabelW+gi*colW+1,geneLabelH+ri*rowH+1,colW-2,rowH-2);
       });
     });
     ctx.strokeStyle='rgba(228,231,239,0.5)';ctx.lineWidth=0.5;
@@ -580,7 +556,7 @@ function renderP2G(snp){
   return genes[0];
 }
 
-// ── GO ────────────────────────────────────────────────────────────────────
+// ── GO ─────────────────────────────────────────────────────────────────────────
 function renderGO(gene){
   document.getElementById('goGeneLabel').textContent=gene||'—';
   const wrap=document.getElementById('goWrap');
@@ -596,28 +572,25 @@ function renderGO(gene){
     </div>`).join('');
 }
 
-// ── Combined score bar ────────────────────────────────────────────────────
+// ── Combined score bar ─────────────────────────────────────────────────────────
 function renderHBar(combined){
   const wrap=document.getElementById('hbarWrap');
   const vals=CT_ORDER.map(ct=>({ct,v:combined[ct]||0}));
   const maxV=Math.max(...vals.map(d=>d.v),0.001);
-  const barMaxW=180;
   wrap.innerHTML=`<table style="border-collapse:collapse;width:100%">
     ${vals.map(({ct,v})=>{
       const t=Math.min(v/maxV,1);
       const r=Math.round(244+(229-244)*t),gv=Math.round(245+(53-245)*t),b=Math.round(248+(102-248)*t);
       return`<tr style="height:15px">
         <td style="font-size:10px;color:#6b7280;text-align:right;padding-right:6px;white-space:nowrap;width:88px;font-family:'DM Mono',monospace">${ct}</td>
-        <td style="padding:2px 0">
-          <div style="width:${Math.max(2,v/maxV*barMaxW).toFixed(1)}px;height:9px;background:rgb(${r},${gv},${b});border-radius:2px"></div>
-        </td>
+        <td style="padding:2px 0"><div style="width:${Math.max(2,v/maxV*180).toFixed(1)}px;height:9px;background:rgb(${r},${gv},${b});border-radius:2px"></div></td>
         <td style="font-size:10px;color:#9ba3bc;padding-left:5px;font-family:'DM Mono',monospace">${v.toFixed(3)}</td>
       </tr>`;
     }).join('')}
   </table>`;
 }
 
-// ── Master render ─────────────────────────────────────────────────────────
+// ── Master render ──────────────────────────────────────────────────────────────
 function getScores(snp){
   if(!G.scores)return{};
   const out={};
@@ -648,7 +621,7 @@ function render(snp){
   });
 }
 
-// ── Layer toggle ──────────────────────────────────────────────────────────
+// ── Layer toggle ───────────────────────────────────────────────────────────────
 document.getElementById('layerBtns').addEventListener('click',e=>{
   const btn=e.target.closest('.lb');if(!btn)return;
   document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));
@@ -656,7 +629,6 @@ document.getElementById('layerBtns').addEventListener('click',e=>{
   if(curSnp){show('treeSpin');renderTree(curSnp,getScores(curSnp));}
 });
 
-// ── Dbl-click expand ─────────────────────────────────────────────────────
 function setupDblClick(){
   document.querySelectorAll('.card').forEach(card=>{
     card.addEventListener('dblclick',()=>{
